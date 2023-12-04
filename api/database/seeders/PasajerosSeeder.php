@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Pasajero;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -22,8 +23,7 @@ class PasajerosSeeder extends Seeder
 
         // Insertar los registros en la tabla pasajeros
         foreach ($pasajeros as $pasajero) {
-            //Modelo
-            //Pasajero::create($pasajero);
+            Pasajero::create($pasajero);
         }
     }
 }

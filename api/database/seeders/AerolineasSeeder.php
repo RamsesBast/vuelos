@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Aerolinea;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -22,8 +23,7 @@ class AerolineasSeeder extends Seeder
 
         // Insertar los registros en la tabla aerolineas
         foreach ($aerolineas as $aerolinea) {
-            //Crear modelo Aerolinea para que funcione el de abajo
-            //Aerolinea::create($aerolinea);
+            Aerolinea::create($aerolinea);
         }
     }
 }

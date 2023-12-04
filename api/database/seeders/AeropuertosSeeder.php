@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Aeropuerto;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -22,8 +23,7 @@ class AeropuertosSeeder extends Seeder
 
         // Insertar los registros en la tabla aeropuertos
         foreach ($aeropuertos as $aeropuerto) {
-            //Agregar modelo Aeropuerto
-            //Aeropuerto::create($aeropuerto);
+            Aeropuerto::create($aeropuerto);
         }
     }
 }

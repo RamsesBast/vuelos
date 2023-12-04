@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('vuelos', function (Blueprint $table) {
-            $table->increments('ID_vuelo');
-            $table->foreignId('ID_aerolinea')->constrained('aerolineas');
-            $table->foreignId('ID_origen')->constrained('aeropuertos');
-            $table->foreignId('ID_destino')->constrained('aeropuertos');
+            $table->increments('id');
+            $table->unsignedInteger('ID_aerolinea');
+            $table->unsignedInteger('ID_origen');
+            $table->unsignedInteger('ID_destino');
             $table->date('fecha');
             $table->time('hora_salida');
             $table->time('hora_llegada');
@@ -23,6 +23,10 @@ return new class extends Migration
             $table->decimal('precio', 8, 2);
             $table->integer('asientos_disponibles');
             $table->timestamps();
+
+            $table->foreign('ID_aerolinea')->references('id')->on('aerolineas');
+            $table->foreign('ID_origen')->references('id')->on('aeropuertos');
+            $table->foreign('ID_destino')->references('id')->on('aeropuertos');
         });
     }
 

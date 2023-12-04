@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Reserva;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -22,8 +23,7 @@ class ReservasSeeder extends Seeder
 
         // Insertar los registros en la tabla reservas
         foreach ($reservas as $reserva) {
-            //Modelo
-            //Reserva::create($reserva);
+            Reserva::create($reserva);
         }
     }
 }

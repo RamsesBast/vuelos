@@ -9,6 +9,8 @@ class Reserva extends Model
 {
     use HasFactory;
     protected $fillable=[
+        'ID_pasajero',
+        'ID_vuelo',
         'fecha_reserva',
         'estado',
         'forma_pago',

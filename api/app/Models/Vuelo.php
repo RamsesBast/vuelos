@@ -9,6 +9,9 @@ class Vuelo extends Model
 {
     use HasFactory;
     protected $fillable=[
+        'ID_aerolinea',
+        'ID_origen',
+        'ID_destino',
         'fecha',
         'hora_salida',
         'hora_llegada',

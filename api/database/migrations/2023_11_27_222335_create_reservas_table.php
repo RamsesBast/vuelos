@@ -12,14 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('reservas', function (Blueprint $table) {
-            $table->increments('ID_reserva');
-            $table->foreignId('ID_pasajero')->constrained('pasajeros');
-            $table->foreignId('ID_vuelo')->constrained('vuelos');
+            $table->increments('id');
+            $table->unsignedInteger('ID_pasajero');
+            $table->unsignedInteger('ID_vuelo');
             $table->date('fecha_reserva');
             $table->string('estado');
             $table->string('forma_pago');
             $table->string('codigo_confirmacion');
             $table->timestamps();
+
+            $table->foreign('ID_pasajero')->references('id')->on('pasajeros');
+            $table->foreign('ID_vuelo')->references('id')->on('vuelos');
         });
     }
 

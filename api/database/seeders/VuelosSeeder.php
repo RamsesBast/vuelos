@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Vuelo;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -22,8 +23,7 @@ class VuelosSeeder extends Seeder
 
         // Insertar los registros en la tabla vuelos
         foreach ($vuelos as $vuelo) {
-            //Crear modelo
-            //Vuelo::create($vuelo);
+            Vuelo::create($vuelo);
         }
     }
 }
