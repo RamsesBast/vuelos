@@ -1,17 +1,21 @@
 <template>
-    <div class="d-flex justify-content-center">
-           
-        <div>
-            <h1 class=" text-center">Log In</h1>
+    <div class="d-flex justify-content-center aling-items-center vh-100 bg-info">
+    
+        
+        <div class='bg-white m-5 p-5 rounded-5 justify-content-center aling-items-center' style="width:23rem; height:33rem">
+            <div class='d-flex justify-content-center'>
+            <img src="/assets/A.png" alt="A" style="height: 7rem" />
+            </div>
+            <h1 class="text-center fw-bold">Login</h1>
             <div class="p-3">
                 <label for="">Email</label>
-                <input v-on:keyup="error=false" v-model="txtEmail" type="email" class="form-control">
+                <input style="border:none; border-bottom: 1px black solid;border-radius:0;border-top-left-radius:10px;border-top-right-radius:10px;" v-on:keyup="error=false" v-model="txtEmail" type="email" class="form-control bg-ligth input-group-text">
             </div>
             <div class="p-3">
                 <label for="">Password</label>
-                <input v-on:keyup="error=false" v-model="txtPassword" type="password" class="form-control">
+                <input style="border:none;  border-bottom: 1px black solid;border-radius:0; border-top-left-radius:10px;border-top-right-radius:10px;" v-on:keyup="error=false" v-model="txtPassword" type="password" class="form-control bg-ligth input-group-text">
             </div>
-            <div class="ap-3">
+            <div class='d-flex ap-3 justify-content-center aling-items-center'>
                 <router-link class="btn btn-outline-info mx-4" :to="'/register'">Registro</router-link>
                 <button @click="login" class="btn btn-dark">Ingresar</button>
             </div>
@@ -36,11 +40,11 @@
             login(){
                 if(this.txtEmail == 'test@gmail.com' && 
                     this.txtPassword == '123123'){
-                   this.$router.push('/payment')
+                    this.$router.push('/payment')
                 }else{
                     this.error = !this.error
                 }
             }
         }
-    }
+    } 
 </script>
