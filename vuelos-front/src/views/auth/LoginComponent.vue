@@ -4,7 +4,7 @@
         
         <div class='bg-white m-5 p-5 rounded-5 justify-content-center aling-items-center' style="width:23rem; height:33rem">
             <div class='d-flex justify-content-center'>
-            <img src="/assets/A.png" alt="A" style="height: 7rem" />
+            <img src="../../assets/A.png" alt="A" style="height: 7rem" />
             </div>
             <h1 class="text-center fw-bold">Login</h1>
             <div class="p-3">
