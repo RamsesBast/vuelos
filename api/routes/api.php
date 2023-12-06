@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AerolineasController;
+use App\Http\Controllers\AeropuertosController;
 use App\Http\Controllers\PasajerosController;
 use App\Http\Controllers\ReservasController;
 use App\Http\Controllers\UsersController;
@@ -28,3 +29,4 @@ Route::resource('passengers', PasajerosController::class);
 Route::resource('reservations', ReservasController::class);
 
 Route::resource('airlines', AerolineasController::class);
+Route::resource('airport', AeropuertosController::class);
