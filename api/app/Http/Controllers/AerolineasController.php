@@ -12,7 +12,17 @@ class AerolineasController extends Controller
      */
     public function index()
     {
-        $aerolineas = Aerolinea::all();
-        return view('ruta-pendiente', compact('aerolineas'));
+        try {
+            $data = Aerolinea::orderBy('id', 'ASC')->get();
+            return response()->json([
+                'status' => 'success',
+                'data' => $data
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => $e->getMessage()
+            ], 500);
+        }
     }
 }
