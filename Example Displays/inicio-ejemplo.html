@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Aerolínea XYZ - Vuelos</title>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="toggleOptions('ida-vuelta')">Ida y Vuelta</a></li>
+                <li><a href="#" onclick="toggleOptions('sencillo')">Sencillo</a></li>
+                <li><a href="#">Vuelos</a></li>
+                <li><a href="#">Estatus de Vuelos</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="search-options">
+            <div class="option" id="ida-vuelta-option">
+                <h2>Ida y Vuelta</h2>
+                <form>
+                    <label for="origin">Origen:</label>
+                    <input type="text" id="origin" name="origin" required>
+
+                    <label for="destination">Destino:</label>
+                    <input type="text" id="destination" name="destination" required>
+
+                    <label for="departure">Fecha de Salida:</label>
+                    <input type="date" id="departure" name="departure" required>
+
+                    <label for="return">Fecha de Regreso:</label>
+                    <input type="date" id="return" name="return" required>
+
+                    <label for="passengers">Pasajeros:</label>
+                    <input type="number" id="passengers" name="passengers" min="1" required>
+
+                    <input type="submit" value="Buscar Vuelos">
+                </form>
+            </div>
+
+            <div class="option" id="sencillo-option">
+                <h2>Sencillo</h2>
+                <form>
+                    <label for="originSimple">Origen:</label>
+                    <input type="text" id="originSimple" name="originSimple" required>
+
+                    <label for="destinationSimple">Destino:</label>
+                    <input type="text" id="destinationSimple" name="destinationSimple" required>
+
+                    <label for="departureSimple">Fecha de Salida:</label>
+                    <input type="date" id="departureSimple" name="departureSimple" required>
+
+                    <label for="passengersSimple">Pasajeros:</label>
+                    <input type="number" id="passengersSimple" name="passengersSimple" min="1" required>
+
+                    <input type="submit" value="Buscar Vuelos">
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Aerolínea XYZ</p>
+    </footer>
+
+    <script>
+        document.getElementById("sencillo-option").style.display = "none";
+
+        function toggleOptions(option) {
+            const idaVueltaOption = document.getElementById("ida-vuelta-option");
+            const sencilloOption = document.getElementById("sencillo-option");
+
+            if (option === "ida-vuelta") {
+                idaVueltaOption.style.display = "block";
+                sencilloOption.style.display = "none";
+            } else if (option === "sencillo") {
+                idaVueltaOption.style.display = "none";
+                sencilloOption.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>
