@@ -4,20 +4,14 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-5">
-          <input
-            type="radio"
-            name="tipo_vuelo"
-            value="Simple"
-            id=""
-            checked
-          />Simple
-          <input type="radio" name="tipo_vuelo" value="Redondo" id="" />Redondo
-
-          <div class="row">
+        <div class="col-4">
+          <input type="radio" class="form-check-input"  name="tipo_vuelo" value="Simple" id="" checked />Simple
+          <input type="radio" class="form-check-input"  name="tipo_vuelo" value="Redondo" id="" />Redondo
+          <br> <br>
+          <div class="row mx-auto">
             <div class="col-4 mx-auto">
               <h5>Origen</h5>
-              <DropDown :options="Vuelos" />
+              <DropDown :options="Vuelos" /> <br>
             </div>
             <div class="col-4 mx-auto">
               <h5>Destino</h5>
@@ -33,13 +27,13 @@
               <h5>Fecha de regreso</h5>
               <input type="date" name="" id="" />
             </div>
-          </div>
+          </div> <br>
           <h5>Número de pasajeros</h5>
           <input type="number" name="" id="" />
-          <br />
-          <Button class="btn btn-success">Buscar</Button>
+          <br />  <br>
+          <Button class="btn btn-primary">Buscar</Button>
         </div>
-        <div class="col-5">
+        <div class="col-5 mx-auto">
           <div id="carouselExample" class="carousel slide">
             <div class="carousel-inner">
               <div class="carousel-item active">
