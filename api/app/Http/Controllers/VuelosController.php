@@ -11,10 +11,10 @@ class VuelosController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         try {
-            $data = Vuelo::select(
+            $query = Vuelo::select(
                 'vuelos.*',
                 'aerolineas.nombre as aerolinea_nombre',
                 'origen.nombre as origen_nombre',
@@ -22,9 +22,25 @@ class VuelosController extends Controller
             )
                 ->join('aerolineas', 'vuelos.ID_aerolinea', '=', 'aerolineas.id')
                 ->join('aeropuertos as origen', 'vuelos.ID_origen', '=', 'origen.id')
-                ->join('aeropuertos as destino', 'vuelos.ID_destino', '=', 'destino.id')
-                ->orderBy('vuelos.id', 'ASC')
-                ->get();
+                ->join('aeropuertos as destino', 'vuelos.ID_destino', '=', 'destino.id');
+
+            if ($request->has('origen')) {
+                $query->where('origen.nombre', $request->origen);
+            }
+
+            if ($request->has('destino')) {
+                $query->where('destino.nombre', $request->destino);
+            }
+
+            if ($request->has('fecha')) {
+                $query->whereDate('vuelos.fecha', $request->fecha);
+            }
+
+            if ($request->has('asientos_disponibles')) {
+                $query->where('vuelos.asientos_disponibles', '>=', $request->asientos_disponibles);
+            }
+
+            $data = $query->orderBy('vuelos.id', 'ASC')->get();
 
             return response()->json([
                 'status' => 'success',
@@ -100,6 +116,7 @@ class VuelosController extends Controller
             ], 500);
         }
     }
+
 
     /**
      * Show the form for editing the specified resource.
