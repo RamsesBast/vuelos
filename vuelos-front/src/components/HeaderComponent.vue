@@ -17,12 +17,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav d-flex">
             <li class="nav-item">
-              <router-link class="nav-link active" aria-current="page" :to="'/'"
+              <router-link class="nav-link active" aria-current="page" :to="'/vuelos'"
+
                 >Vuelos</router-link
               >
             </li>
             <li class="nav-item">
-              <router-link class="nav-link active" aria-current="page" :to="'/'"
+              <router-link class="nav-link active" aria-current="page" :to="'/estatusvuelos'"
                 >Estatus de vuelo</router-link
               >
             </li>
