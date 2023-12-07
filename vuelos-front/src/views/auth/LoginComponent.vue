@@ -78,7 +78,7 @@ export default {
   methods: {
     login() {
       if (this.txtEmail == "test@gmail.com" && this.txtPassword == "123123") {
-        this.$router.push("/payment");
+        this.$router.push("/inicio");
       } else {
         this.error = !this.error;
       }

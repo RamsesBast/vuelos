@@ -15,6 +15,7 @@
             name="tipo_vuelo"
             value="Simple"
             id=""
+            v-on:click="simpleORedondo('simple')"
             checked
           />Simple
           <input
@@ -24,16 +25,17 @@
             name="tipo_vuelo"
             value="Redondo"
             id=""
+            v-on:click="simpleORedondo('redondo')"
           />Redondo <br />
           <br />
           <div class="row mx-auto">
             <div class="col-4 mx-auto">
               <h5>Origen</h5>
-              <DropDown :options="Vuelos" /> <br />
+              <DropDown :options="aeropuertos" /> <br />
             </div>
             <div class="col-4 mx-auto">
               <h5>Destino</h5>
-              <DropDown :options="Vuelos" />
+              <DropDown :options="aeropuertos" />
             </div>
           </div>
           <div class="row mx-auto">
@@ -52,7 +54,7 @@
                 id=""
               />
             </div>
-            <div class="col-4 mx-auto">
+            <div class="col-4 mx-auto" :hidden="fechaHabilitada">
               <h5>Fecha de regreso</h5>
               <input
                 style="
@@ -86,7 +88,10 @@
           />
           <br />
           <br />
-          <Button style="margin-left: 45%" class="btn btn-primary"
+          <Button
+            v-on:click="revisarDisponibilidad()"
+            style="margin-left: 45%"
+            class="btn btn-primary"
             >Buscar</Button
           >
         </div>
@@ -168,14 +173,25 @@ export default {
   data: () => {
     return {
       selected: "",
-
-      Vuelos: [],
-      //Vuelos2: ["Option1", "Option2", "Option3"],
+      fechaHabilitada: true,
+      aeropuertos: [],
     };
   },
   methods: {
+    simpleORedondo(tipo) {
+      if (tipo == "redondo") {
+        console.log("redondo");
+        this.fechaHabilitada = false;
+      } else if (tipo == "simple") {
+        console.log("simple");
+        this.fechaHabilitada = true;
+      }
+    },
+    revisarDisponibilidad() {
+      console.log("funciona");
+    },
     getData() {
-      let arreglo = this.Vuelos;
+      let arreglo = this.aeropuertos;
       axios
         .get("airlines")
         .then((response) => {
